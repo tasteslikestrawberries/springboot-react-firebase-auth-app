@@ -1,0 +1,168 @@
+/*GENERAL*/
+*{
+    box-sizing: border-box;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #0d6efd;
+}
+
+h2, h3, h4 {
+  color:#0d6efd;
+}
+
+
+.myProfileContainer{ /*this is wrapper in App.js for sidebar/content*/
+    display:flex;
+}
+
+input{
+  margin-bottom: 1rem;
+}
+
+.containerPaper{
+    width:fit-content;
+    margin: 2rem 0.5rem;
+    height:fit-content;
+}
+
+
+.cardsHeader{
+    display:flex;
+    gap:1rem;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom:1rem;
+}
+
+/*REGISTER AND LOGIN*/
+.registerFormWrapper{
+    margin-top:3rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerForm{
+    width:30vw;
+}
+
+.form-group{
+    margin-bottom:1rem;
+}
+
+
+/*MYPROFILE*/
+.myProfileHeadlineWrapper{
+    display:flex;
+    gap: 5rem;
+    align-items: center;
+    margin-bottom:2rem;
+}
+
+.myProfileHeadlineNameRoleWrapper{
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.profileImg{
+    border: 3px solid #0d6efd;;
+    border-radius: 50%;
+    margin-top: 1rem;
+    height:80px;
+    width:80px;
+}
+
+
+.personalInformationUL{
+    margin-top:1.5rem;
+    list-style-type: none;
+    padding:0;
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.personalInformationUL li{
+    color:rgb(112, 109, 109);
+}
+
+.liWrapper{
+    display:flex;
+    align-items: center;
+    gap:1rem;
+}
+
+
+/*NEW USER*/
+.buttonsNewUser{
+    text-align:center;
+    margin-top:1rem;
+}
+
+.buttonsNewUser>button{
+    margin:0 0.5rem;
+}
+
+input[type="date"]:before {
+color: rgb(141, 138, 138);
+content: attr(placeholder) !important;
+margin-right: 0.5em;
+}
+
+input[type="date"]:before {
+    color: rgb(141, 138, 138);
+    content: attr(placeholder) !important;
+    margin-right: 0.5em;
+  }
+  
+  input[type="date"]::-webkit-datetime-edit {
+    color: rgb(141, 138, 138) ; 
+}
+
+/*FILES (UPLOAD)*/
+.buttonsFiles{
+    margin-top:2rem;
+    display:flex;
+    align-items: center;
+    flex-wrap:nowrap;
+}
+
+/*DESKTOP SCREENS*/
+@media (min-width: 40rem) {
+    .sidebarContainer{
+        height: 100vh;
+    }
+
+    .containerPaper {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 2rem;
+        margin: 2rem 2rem;
+        width:100%;
+    }
+
+    h1{
+        text-align: initial;
+        margin:0 0 1rem 0;
+    }
+
+    .timerContainer{
+        display:flex;
+        align-items: center;
+    }
+
+    .profileImg{
+        height:150px;
+        width:150px;
+    }
+
+}
+
+
+
+
+ 
