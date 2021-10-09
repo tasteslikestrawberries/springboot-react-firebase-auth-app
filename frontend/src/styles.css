@@ -150,11 +150,6 @@ input[type="date"]:before {
         margin:0 0 1rem 0;
     }
 
-    .timerContainer{
-        display:flex;
-        align-items: center;
-    }
-
     .profileImg{
         height:150px;
         width:150px;
