@@ -1,4 +1,7 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+
+import axios from '../../axiosCommonInstance'
+import { useAuth } from "../../contexts/AuthContext";
 
 //components
 import Personal from './PersonalInformation'
@@ -13,6 +16,23 @@ import {Tabs, Tab} from 'react-bootstrap'
 import { Icon } from '@iconify/react';
 
 const MyProfile = () => {
+    const { currentUser } = useAuth()
+    const [user, setUser] = useState({}) //initial value is empty (user) object
+
+    useEffect( () => {
+        axios.get("http://localhost:8080/user/getUserByUid", {
+          params: {
+            uid: currentUser.uid
+          }
+        })
+        .then((result) => {
+            setUser(result.data)
+        }).catch(err => {
+          console.log(err)
+        })
+    }, [currentUser])
+    
+    //console.log(user)
 
   return(
     <>
@@ -25,20 +45,20 @@ const MyProfile = () => {
           <div className='myProfileHeadlineWrapper'>
               <img src={placeholder} className='profileImg' alt='profileimg'></img>
               <div className='myProfileHeadlineNameRoleWrapper'>   
-                <h2>Joanna Johnson</h2>
-                <h5>Junior Developer at Test</h5>
+                <h2>{user.name} {user.surname}</h2>
+                <h5>Test at Test</h5>
               </div> 
           </div>
 
           <Tabs defaultActiveKey="personalinformation" id="uncontrolled-tab-example" className="mb-3">
               <Tab eventKey="personalinformation" title="Personal">
-                  <Personal />
+                  <Personal user={user}/>
               </Tab>
               <Tab eventKey="contact" title="Contact">
-                  <Contact />
+                  <Contact user={user} currentUser={currentUser} />
               </Tab>
               <Tab eventKey="workinformation" title="Work">
-                  <Work />
+                  <Work user={user} />
               </Tab>
           </Tabs>
       </div>

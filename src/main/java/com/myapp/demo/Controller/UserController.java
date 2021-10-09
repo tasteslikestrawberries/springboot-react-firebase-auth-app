@@ -18,17 +18,19 @@ public class UserController {
     //saving data into database:
     @PostMapping("/add")
     public String add(@RequestBody User user) {
-        //System.out.println(user.getUid());
+
         userService.saveUser(user);
         return "New user is added";
     }
     @GetMapping("/getAll")
     public List<User> getAllUsers(){
+
         return userService.getAllUsers();
     }
 
     @GetMapping("/getUserByUid")
-    public User getUserByUid(@RequestParam String uid) {
+    public User getUserByUid(@RequestParam(required = false) String uid) {
+
         return userService.getUserByUid(uid);
     }
 

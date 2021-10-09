@@ -30,7 +30,7 @@ import './styles.css';
 
 function App() {
 
-  //prevents window from closing (alerts the user)
+  /*prevents window from closing (alerts the user)
   //https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload
 
     window.onbeforeunload = (event) => {
@@ -42,6 +42,7 @@ function App() {
       }
       return ''; 
     };
+  */
 
   /*AUTH*/
   const [ , setError] = useState('')
@@ -49,7 +50,7 @@ function App() {
   const history = useHistory()
 
     async function handleLogout() {
-      if (window.confirm('Log out? Changes you made may not be saved')===false) return
+      {/*if (window.confirm('Log out? Changes you made may not be saved')===false) return*/}
       
       setError('')
       try {
