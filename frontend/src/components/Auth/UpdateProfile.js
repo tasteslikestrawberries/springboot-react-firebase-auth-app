@@ -1,53 +1,55 @@
-import React, { useRef, useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import React, { useRef, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 //comppnents
-import { useAuth } from "../../contexts/AuthContext"
+import { useAuth } from "../../contexts/AuthContext";
 
 //styles
-import { Container, Form, Button, Alert } from "react-bootstrap"
+import { Container, Form, Button, Alert } from "react-bootstrap";
 
 export default function UpdateProfile() {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
-  const { currentUser, updateEmail, updatePassword } = useAuth()
-  const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { currentUser, updateEmail, updatePassword } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    if(passwordRef.current.value !== passwordConfirmRef.current.value){
-        return setError('Passwords do not match')
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
     }
 
-    const promises = []
-    setLoading(true)
-    setError('')
+    const promises = [];
+    setLoading(true);
+    setError("");
 
     if (emailRef.current.value !== currentUser.email) {
-      promises.push(updateEmail(emailRef.current.value))
+      promises.push(updateEmail(emailRef.current.value));
     }
 
-    if (passwordRef.current.value){
-      promises.push(updatePassword(passwordRef.current.value))
+    if (passwordRef.current.value) {
+      promises.push(updatePassword(passwordRef.current.value));
     }
 
-    Promise.all(promises).then(() => {
-      history.push('/')
-    }).catch(() => {
-      setError('Failed to update account')
-    }).finally(() => {
-      setLoading(false)
-    })
-
+    Promise.all(promises)
+      .then(() => {
+        history.push("/");
+      })
+      .catch(() => {
+        setError("Failed to update account");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   return (
     <>
-      <div className='containerPaper'>
+      <div className="containerPaper">
         <Container
           className="d-flex align-items-center justify-content-center"
           style={{ minHeight: "100vh" }}

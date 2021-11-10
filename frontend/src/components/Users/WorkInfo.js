@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 const WorkInfo = ({ handleChange }) => {
   return (
     <>
-      <br/>
+      <br />
       <div className="d-flex flex-column align-items-center">
         <h2>Work Info</h2>
 
@@ -32,7 +32,6 @@ const WorkInfo = ({ handleChange }) => {
             name="employmentdate"
           />
         </Form.Group>
-
       </div>
     </>
   );

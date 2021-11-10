@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FileUploadService from "./FileUploadService";
 
 //styles
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
 const Files = () => {
   const [selectedFiles, setSelectedFiles] = useState(undefined);
@@ -48,57 +48,52 @@ const Files = () => {
 
   return (
     <>
-        <div className='containerPaper'>
-          <div className='cardsHeader'>
+      <div className="containerPaper">
+        <div className="cardsHeader">
           <Icon icon="fa-solid:sticky-note" color="#0d6efd" height="40" />
-            <h1>My Files</h1>
-          </div>
-            {currentFile && (
-                <div className="progress">
-                <div
-                    className="progress-bar bg-info"
-                    role="progressbar"
-                    aria-valuenow={progress}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{ width: progress + "%" }}
-                >
-                    {progress}%
-                </div>
-                </div>
-            )}
-
-
-            <div className='buttonsFiles'>
-              <button className="btn btn-default">
-                  <input type="file" onChange={selectFile} />
-              </button>
-
-              <button
-                  disabled={!selectedFiles}
-                  onClick={upload}
-              >
-                  Upload
-              </button>
-            </div>
-
-              <div className="alert alert-light" role="alert">
-                  {message}
-              </div>
-            
-
-            <div className="card">
-                <div className="card-header">My Files</div>
-                <ul className="list-group list-group-flush">
-                {filesInfo &&
-                    filesInfo.map((file, index) => (
-                    <li className="list-group-item" key={index}>
-                        <a href={file.url}>{file.name}</a>
-                    </li>
-                    ))}
-                </ul>
-            </div>
+          <h1>My Files</h1>
         </div>
+        {currentFile && (
+          <div className="progress">
+            <div
+              className="progress-bar bg-info"
+              role="progressbar"
+              aria-valuenow={progress}
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style={{ width: progress + "%" }}
+            >
+              {progress}%
+            </div>
+          </div>
+        )}
+
+        <div className="buttonsFiles">
+          <button className="btn btn-default">
+            <input type="file" onChange={selectFile} />
+          </button>
+
+          <button disabled={!selectedFiles} onClick={upload}>
+            Upload
+          </button>
+        </div>
+
+        <div className="alert alert-light" role="alert">
+          {message}
+        </div>
+
+        <div className="card">
+          <div className="card-header">My Files</div>
+          <ul className="list-group list-group-flush">
+            {filesInfo &&
+              filesInfo.map((file, index) => (
+                <li className="list-group-item" key={index}>
+                  <a href={file.url}>{file.name}</a>
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
     </>
   );
 };

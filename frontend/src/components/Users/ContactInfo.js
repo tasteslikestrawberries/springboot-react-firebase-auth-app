@@ -8,7 +8,9 @@ const ContactInfo = ({ handleChange }) => {
       <Form.Group className="w-75 mt-4">
         <Form.Control
           required
-          type="tel" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          type="tel"
+          id="phone"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           placeholder="Phone Number"
           onChange={handleChange("phone")}
           name="phone"
@@ -32,7 +34,6 @@ const ContactInfo = ({ handleChange }) => {
           name="address"
         />
       </Form.Group>
-
     </div>
   );
 };
